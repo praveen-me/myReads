@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import * as BooksAPI from './BooksAPI';
 import SearchBooks from './components/SearchBooks';
 import './App.css';
@@ -45,7 +45,7 @@ class BooksApp extends React.Component {
     const {booksData, isLoading} = this.state;
     return (
       <div className="app">
-        <BrowserRouter>
+        <Router>
           <Switch>
             <Route path="/" exact component={ (props) =>
               isLoading ?
@@ -58,7 +58,7 @@ class BooksApp extends React.Component {
             }/>
             <Route path="/search" component={SearchBooks}/>
           </Switch>
-        </BrowserRouter>
+        </Router>
       </div>
     )
   }
