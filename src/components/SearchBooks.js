@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import * as BookAPI from './../BooksAPI';
-import BookCard from './BookCard'
+import BookCard from './BookCard';
+import Loader from './Loader';
 
 class SearchBooks extends Component {
   constructor(props) {
@@ -43,7 +44,7 @@ class SearchBooks extends Component {
         <div className="search-books-results">
           <ol className="books-grid">
             {
-              isLoading ? <p>Loading...</p> : 
+              isLoading ? <Loader /> : 
               searchedBooks.map((book,i) => <BookCard 
                 book={book} 
                 key={i}

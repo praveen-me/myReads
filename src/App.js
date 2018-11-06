@@ -2,8 +2,9 @@ import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import * as BooksAPI from './BooksAPI';
 import SearchBooks from './components/SearchBooks';
-import './App.css';
+import './css/App.css';
 import ListBooks from './components/ListBooks';
+import Loader from './components/Loader';
 
 class BooksApp extends React.Component {
   state = {
@@ -49,14 +50,14 @@ class BooksApp extends React.Component {
           <Switch>
             <Route path="/" exact component={ (props) =>
               isLoading ?
-              <p>Loading...</p> : 
+              <Loader /> : 
               <ListBooks 
               onClick={this.changeState} 
               {...props} 
               bookList={booksData} 
               handleUpdate={this.handleUpdate}/>
             }/>
-            <Route path="/search" render={(props) => <SearchBooks handleUpdate={this.handleUpdate}/>}/>
+            <Route path="/search" render={(props) => <SearchBooks {...props} handleUpdate={this.handleUpdate}/>}/>
           </Switch>
         </Router>
       </div>
