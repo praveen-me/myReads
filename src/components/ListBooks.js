@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import Shelf from './Shelf';
 
 class ListBooks extends Component {
   render() {
     const {bookList, handleUpdate} = this.props;
+    var currentlyReadingArray, wantToReadArray, readArray;
+    if(typeof bookList !== null) {
+      currentlyReadingArray = bookList.filter(book => book.shelf === 'currentlyReading');
+      
+      wantToReadArray = bookList.filter(book => book.shelf === 'wantToRead');
 
-    const currentlyReadingArray = bookList.filter(book => book.shelf === 'currentlyReading');
-    
-    const wantToReadArray = bookList.filter(book => book.shelf === 'wantToRead');
-
-    const readArray = bookList.filter(book => book.shelf === 'read');
+      readArray = bookList.filter(book => book.shelf === 'read');
+    }
+    console.log(this.props.bookList);
 
     return (
       <div className="list-books">
@@ -33,7 +37,7 @@ class ListBooks extends Component {
             </div>
           </div>
           <div className="open-search">
-            <a onClick={this.props.onClick}>Add a book</a>
+            <Link to="/search">Add a book</Link>
           </div>
         </div>
     );

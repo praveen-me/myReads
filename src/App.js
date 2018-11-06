@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Route} from 'react-router-dom';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import * as BooksAPI from './BooksAPI';
 import SearchBooks from './components/SearchBooks';
 import './App.css';
@@ -7,7 +7,7 @@ import ListBooks from './components/ListBooks';
 
 class BooksApp extends React.Component {
   state = {
-    booksData : null,
+    booksData : [],
     showSearchPage: false, 
     isLoading : true,
     changeStateValue : ''
@@ -45,13 +45,20 @@ class BooksApp extends React.Component {
     const {booksData, isLoading} = this.state;
     return (
       <div className="app">
-        {/* <BrowserRouter> */}
-          {/* <Route path="/" exact componenet={SearchBooks}/> */}
-          {isLoading ?
-          <p>Loading...</p> : 
-          <ListBooks 
-          onClick={this.changeState} bookList={booksData} handleUpdate={this.handleUpdate}/>}
-        {/* </BrowserRouter> */}
+        <BrowserRouter>
+          <Switch>
+            <Route path="/" exact component={ (props) =>
+              isLoading ?
+              <p>Loading...</p> : 
+              <ListBooks 
+              onClick={this.changeState} 
+              {...props} 
+              bookList={booksData} 
+              handleUpdate={this.handleUpdate}/>
+            }/>
+            <Route path="/search" component={SearchBooks}/>
+          </Switch>
+        </BrowserRouter>
       </div>
     )
   }
