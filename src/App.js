@@ -56,7 +56,7 @@ class BooksApp extends React.Component {
               bookList={booksData} 
               handleUpdate={this.handleUpdate}/>
             }/>
-            <Route path="/search" component={SearchBooks}/>
+            <Route path="/search" render={(props) => <SearchBooks handleUpdate={this.handleUpdate}/>}/>
           </Switch>
         </Router>
       </div>

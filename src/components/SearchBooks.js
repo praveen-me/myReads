@@ -43,9 +43,11 @@ class SearchBooks extends Component {
         <div className="search-books-results">
           <ol className="books-grid">
             {
-              isLoading ? <p>Loading...</p> : searchedBooks.map(book => <BookCard 
+              isLoading ? <p>Loading...</p> : 
+              searchedBooks.map((book,i) => <BookCard 
                 book={book} 
-                key={book.title}/>)
+                key={i}
+                handleUpdate={this.props.handleUpdate}/>)
             }
           </ol>
         </div>
