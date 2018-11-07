@@ -9,7 +9,6 @@ body, .app {
 }
 
 /* main page */
-
 .list-books-title {
   padding: 10px 0;
   background: #2e7c31;
@@ -108,6 +107,7 @@ body, .app {
 .books-grid {
   list-style-type: none;
   padding: 0;
+  padding-top: 3rem;
   margin: 0;
 
   display: flex;
@@ -172,3 +172,4 @@ body, .app {
   text-align: center;
   font-size: 0.8em;
 }
+

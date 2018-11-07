@@ -3,11 +3,21 @@ import React, { Component } from 'react';
 class BookCard extends Component {
   render() {
     const {book, handleUpdate} = this.props;
+    let thumbnail;
+    if(book.imageLinks === undefined) {
+      thumbnail = '';
+    } else {
+      thumbnail = <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.thumbnail})` }}></div>
+    }
+
+    
     return (
       <li>
         <div className="book">  
           <div className="book-top">
-            <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.thumbnail})` }}></div>
+            {
+              thumbnail
+            }
             <div className="book-shelf-changer">
               <select onClick={(e) => handleUpdate(e, book)}>
                 <option value="move" disabled>Move to...</option>
