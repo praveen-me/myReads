@@ -9,8 +9,6 @@ class BookCard extends Component {
     } else {
       thumbnail = <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.thumbnail})` }}></div>
     }
-
-    
     return (
       <li>
         <div className="book">  
