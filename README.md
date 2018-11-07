@@ -68,8 +68,8 @@ Remember that good React design practice is to create new JS files for each comp
 ## Prerequisites
 * ES6, Promises, REACT
 
-## Backend Server
 
+## Backend Server
 The provided file [`BooksAPI.js`](src/BooksAPI.js) contains the methods you will need to perform necessary operations on the backend:
 
 * [`getAll`](#getall)
