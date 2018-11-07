@@ -116,7 +116,7 @@ search(query)
 ### Installation
 
 1. Clone the Project - `https://github.com/praveen-me/myReads.git`
-2. Go into the directory where the project now lives - `cd FEND-react-myreads`
+2. Go into the directory where the project now lives - `cd myReads`
 3. Install the dependencies - `npm install`
 4. Start the app - `npm start`
 ```
